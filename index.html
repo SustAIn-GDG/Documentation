@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Environmental Impact Metrics</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        /* Body Styling */
+        body {
+            background: linear-gradient(to bottom, #5eead4, #2dd4bf);
+            color: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 900px;
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+            text-align: left;
+        }
+
+        /* Headings */
+        h1, h2 {
+            color: #0f766e;
+        }
+
+        h1 {
+            font-size: 26px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h2 {
+            font-size: 20px;
+            margin-top: 25px;
+            border-bottom: 3px solid #99f6e4;
+            padding-bottom: 8px;
+        }
+
+        /* Paragraph Styling */
+        p {
+            font-size: 15px;
+            color: #333;
+            line-height: 1.7;
+            margin-bottom: 12px;
+        }
+
+        /* Links */
+        a {
+            color: #007BFF;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Unordered List */
+        ul {
+            padding-left: 25px;
+            margin-bottom: 12px;
+        }
+
+        li {
+            font-size: 15px;
+            color: #333;
+            margin-bottom: 6px;
+        }
+
+        /* Formula Styling */
+        .formula {
+            background-color: #f0fdfa;
+            padding: 12px;
+            border-radius: 8px;
+            border: 1px solid #99f6e4;
+            font-weight: bold;
+            text-align: center;
+            margin: 12px 0;
+        }
+
+        /* Footer */
+        .footer {
+            font-size: 13px;
+            color: gray;
+            text-align: center;
+            margin-top: 25px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 850px) {
+            .container {
+                width: 100%;
+                padding: 25px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Understanding AI Environmental Impact Metrics</h1>
+        <p>At SustAIn, we are dedicated to quantifying the environmental footprint of AI models. Our methodology is built upon rigorous research and real-world data extrapolation, ensuring transparency and accuracy.</p>
+        
+        <h2>Research & Data Sources</h2>
+        <p>We base our calculations on established research papers and empirical datasets. Notably, the <a href="https://huggingface.github.io/AIEnergyScore/" target="_blank">AI Energy Score Initiative</a> provides invaluable insights into energy consumption trends across AI models.</p>
+        
+        <h2>Energy Consumption Scaling</h2>
+        <p>To estimate real-world AI model energy consumption, we apply a parameter-based scaling approach. Since larger models incorporate optimizations, we use an efficiency-adjusted formula:</p>
+        
+        <div class="formula">𝐸_new = 𝐸_base × (P_base / P_new)<sup>b</sup></div>
+        <p><strong>Where:</strong></p>
+        <ul>
+            <li><b>E_base:</b> Energy consumption of a reference model</li>
+            <li><b>P_base:</b> Parameter count of the reference model</li>
+            <li><b>P_new:</b> Parameter count of the target model</li>
+            <li><b>b:</b> Efficiency scaling exponent</li>
+        </ul>
+        
+        <h2>Carbon Emission Estimation</h2>
+        <p>We determine a server's geographical location through browser APIs and geolocation services. The regional carbon intensity factor (gCO2eq/kWh) is retrieved from the <a href="https://www.electricitymaps.com/" target="_blank">ElectricityMaps API</a> to assess emissions.</p>
+        
+        <h2>Datacenter Efficiency & PUE Factor</h2>
+        <p>Power Usage Effectiveness (PUE) varies based on external conditions. Our calculations account for these fluctuations:</p>
+        <ul>
+            <li><strong>Peak summer demand:</strong> PUE = 1.6 (higher energy loss)</li>
+            <li><strong>Winter off-peak hours:</strong> PUE = 1.1 (optimal efficiency)</li>
+        </ul>
+        
+        <h2>Water Consumption Calculation</h2>
+        <p>Water usage per kWh is estimated based on cooling system dependencies. Our methodology factors in regional variations in water consumption for cooling.</p>
+        
+        <h2>Query Classification</h2>
+        <p>To enhance precision, queries are first categorized (e.g., text generation, image processing) using our machine learning model deployed on Google Cloud’s Vertex AI.</p>
+        
+        <h2>Further Resources</h2>
+        <p>For a deeper dive into our methodology, explore our dataset on <a href="https://github.com/SustAIn-GDG/SustAIn-Backend/blob/main/data/AI%20Energy%20Consumption%20Dataset.xlsx">GitHub</a> and consult our <a href="https://github.com/SustAIn-GDG/Documentation">Documentation Repository</a>.</p>
+        
+        <div class="footer">
+            &copy; 2025 SustAIn | Advancing AI Sustainability
+        </div>
+    </div>
+</body>
+</html>

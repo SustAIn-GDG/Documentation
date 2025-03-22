@@ -1,0 +1,19 @@
+title: Sustain GDG Documentation
+description: Documentation for the Sustain GDG project.
+theme: jekyll-theme-cayman # Optional: If using a theme, you can specify it here.
+
+# Optional: URL if you're using a custom domain
+url: "https://sustain-gdg.github.io"
+baseurl: "/"
+
+# Include assets folder (this is important if it's not being recognized by Jekyll)
+include:
+  - assets
+  - Excalidraw
+  - UML
+
+# Optional: Exclude files or folders (like if you don't want a folder to be included)
+exclude:
+  - README.md
+  - .git
+  - .github

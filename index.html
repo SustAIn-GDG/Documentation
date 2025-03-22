@@ -1,0 +1,705 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>AI Environmental Impact Metrics | SustAIn</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+    />
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+      /* General Reset */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Poppins", sans-serif;
+      }
+
+      /* Body Styling */
+      body {
+        background: linear-gradient(135deg, #5eead4, #2dd4bf);
+        color: #1e293b;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        padding: 20px;
+      }
+
+      /* Main Container */
+      .container {
+        max-width: 900px;
+        background: white;
+        padding: 0;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+        overflow: hidden;
+      }
+
+      .content-wrapper {
+        padding: 0 30px 30px;
+      }
+
+      /* Logo Header */
+      .logo-header {
+        background: linear-gradient(90deg, #0f766e, #14b8a6);
+        padding: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin-bottom: 0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .logo-header::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: radial-gradient(
+          circle,
+          rgba(255, 255, 255, 0.1) 0%,
+          rgba(255, 255, 255, 0) 70%
+        );
+        pointer-events: none;
+      }
+
+      .logo {
+        font-size: 38px;
+        font-weight: 700;
+        color: white;
+        letter-spacing: 1px;
+        display: flex;
+        align-items: center;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .logo-img {
+        height: 50px;
+        width: auto;
+        margin-right: 12px;
+      }
+
+      .logo-icon {
+        width: 60px;
+        height: 60px;
+        margin-right: 15px;
+        background-color: rgba(255, 255, 255, 0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 32px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        border: 2px solid rgba(255, 255, 255, 0.2);
+      }
+
+      .github-link {
+        background: rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 8px 15px;
+        border-radius: 30px;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 14px;
+        display: flex;
+        align-items: center;
+        transition: all 0.3s ease;
+      }
+
+      .github-link:hover {
+        background: rgba(255, 255, 255, 0.3);
+        transform: translateY(-2px);
+      }
+
+      .github-link i {
+        margin-right: 8px;
+      }
+
+      /* Challenge Banner */
+      .challenge-banner {
+        background: linear-gradient(to right, #f0fdfa, #ccfbf1);
+        padding: 15px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        border-bottom: 1px solid rgba(15, 118, 110, 0.1);
+      }
+
+      .challenge-banner::before {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(15, 118, 110, 0.03),
+          rgba(15, 118, 110, 0.03) 10px,
+          rgba(15, 118, 110, 0.06) 10px,
+          rgba(15, 118, 110, 0.06) 20px
+        );
+      }
+
+      .challenge-banner p {
+        margin: 0;
+        font-weight: 600;
+        color: #0f766e;
+        font-size: 16px;
+        position: relative;
+      }
+
+      .challenge-banner p i {
+        margin-right: 8px;
+        color: #0d9488;
+      }
+
+      /* Headings */
+      h1,
+      h2 {
+        color: #0f766e;
+      }
+
+      h1 {
+        font-size: 28px;
+        text-align: center;
+        margin: 30px 0 25px;
+        font-weight: 700;
+        position: relative;
+        padding-bottom: 15px;
+      }
+
+      h1::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80px;
+        height: 4px;
+        background: linear-gradient(to right, #0f766e, #2dd4bf);
+        border-radius: 2px;
+      }
+
+      h2 {
+        font-size: 22px;
+        margin-top: 30px;
+        border-bottom: 0;
+        padding-bottom: 10px;
+        font-weight: 600;
+        position: relative;
+        display: inline-block;
+        margin-bottom: 15px;
+      }
+
+      h2::after {
+        content: "";
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background: linear-gradient(to right, #0f766e, #99f6e4);
+        border-radius: 3px;
+      }
+
+      /* Paragraph Styling */
+      p {
+        font-size: 15px;
+        color: #475569;
+        line-height: 1.8;
+        margin-bottom: 15px;
+      }
+
+      /* Links */
+      a {
+        color: #0369a1;
+        text-decoration: none;
+        font-weight: 500;
+        transition: all 0.2s ease;
+        border-bottom: 1px dotted #0369a1;
+        padding-bottom: 1px;
+      }
+
+      a:hover {
+        color: #0284c7;
+        border-bottom: 1px solid #0284c7;
+      }
+
+      /* Unordered List */
+      ul {
+        padding-left: 25px;
+        margin-bottom: 15px;
+      }
+
+      li {
+        font-size: 15px;
+        color: #475569;
+        margin-bottom: 8px;
+        position: relative;
+        padding-left: 5px;
+      }
+
+      li::marker {
+        color: #0f766e;
+      }
+
+      /* Formula Styling */
+      .formula {
+        background-color: #f8fafc;
+        padding: 18px;
+        border-radius: 10px;
+        border: 1px solid #e2e8f0;
+        font-weight: 500;
+        text-align: center;
+        margin: 20px 0;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.03);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .formula::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 4px;
+        height: 100%;
+        background: linear-gradient(to bottom, #0f766e, #2dd4bf);
+        border-radius: 4px 0 0 4px;
+      }
+
+      /* Team Section */
+      .team-section {
+        margin-top: 40px;
+        padding: 25px;
+        background-color: #f8fafc;
+        border-radius: 12px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .team-section::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 150px;
+        height: 150px;
+        background: radial-gradient(
+          circle,
+          rgba(45, 212, 191, 0.1) 0%,
+          rgba(45, 212, 191, 0) 70%
+        );
+        border-radius: 50%;
+      }
+
+      .team-section h2 {
+        margin-top: 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .team-section h2 i {
+        margin-right: 10px;
+        color: #0f766e;
+      }
+
+      .team-members {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-top: 20px;
+      }
+
+      .team-member {
+        flex: 1;
+        min-width: 250px;
+        display: flex;
+        flex-direction: column;
+        padding: 20px;
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+        border: 1px solid #e2e8f0;
+        transition: all 0.3s ease;
+      }
+
+      .team-member:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+      }
+
+      .team-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 15px;
+      }
+
+      .team-avatar {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #0f766e, #14b8a6);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-weight: bold;
+        margin-right: 15px;
+        font-size: 18px;
+        border: 2px solid white;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+
+      .team-name {
+        font-weight: 600;
+        color: #0f172a;
+        font-size: 16px;
+      }
+
+      .team-links {
+        display: flex;
+        gap: 10px;
+        margin-top: 5px;
+      }
+
+      .team-link {
+        display: flex;
+        align-items: center;
+        padding: 6px 12px;
+        border-radius: 20px;
+        font-size: 13px;
+        background: #f1f5f9;
+        color: #0f766e;
+        text-decoration: none;
+        border: none;
+        transition: all 0.2s;
+      }
+
+      .team-link:hover {
+        background: #e2e8f0;
+        color: #0f766e;
+        border: none;
+      }
+
+      .team-link i {
+        margin-right: 5px;
+      }
+
+      /* Footer */
+      .footer {
+        background: linear-gradient(90deg, #0f766e, #14b8a6);
+        color: white;
+        text-align: center;
+        padding: 25px;
+        border-radius: 0 0 16px 16px;
+        margin-top: 40px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .footer::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: repeating-linear-gradient(
+          45deg,
+          rgba(255, 255, 255, 0.03),
+          rgba(255, 255, 255, 0.03) 10px,
+          rgba(255, 255, 255, 0.06) 10px,
+          rgba(255, 255, 255, 0.06) 20px
+        );
+      }
+
+      .footer-content {
+        position: relative;
+        z-index: 1;
+      }
+
+      .made-with-love {
+        font-size: 16px;
+        margin-bottom: 10px;
+      }
+
+      .made-with-love i {
+        color: #ff6b6b;
+        animation: heartbeat 1.5s infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.2);
+        }
+      }
+
+      .copyright {
+        margin-top: 10px;
+        font-size: 14px;
+        color: rgba(255, 255, 255, 0.7);
+      }
+
+      /* Responsive Design */
+      @media (max-width: 850px) {
+        .container {
+          width: 100%;
+        }
+
+        .content-wrapper {
+          padding: 0 20px 20px;
+        }
+
+        .logo {
+          font-size: 30px;
+        }
+
+        .logo-icon {
+          width: 48px;
+          height: 48px;
+          font-size: 24px;
+        }
+
+        .team-members {
+          flex-direction: column;
+        }
+
+        .team-member {
+          width: 100%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .logo-header {
+          flex-direction: column;
+          gap: 15px;
+          align-items: center;
+        }
+
+        .github-link {
+          width: 100%;
+          justify-content: center;
+        }
+
+        .team-links {
+          flex-wrap: wrap;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!-- Logo Header -->
+      <div class="logo-header">
+        <div class="logo">
+          <img
+            src="/Documentation/assets/Logo.png"
+            alt="SustAIn Logo"
+            class="logo-img"
+          />
+          <span>SustAIn</span>
+        </div>
+        <a
+          href="https://github.com/SustAIn-GDG"
+          target="_blank"
+          class="github-link"
+        >
+          <i class="fab fa-github"></i> GitHub Organization
+        </a>
+      </div>
+
+      <!-- Challenge Banner -->
+      <div class="challenge-banner">
+        <p>
+          <i class="fas fa-award"></i> Proudly Made for Google AI Solutions
+          Challenge 2025
+        </p>
+      </div>
+
+      <div class="content-wrapper">
+        <h1>Understanding AI Environmental Impact Metrics</h1>
+        <p>
+          At SustAIn, we are dedicated to quantifying the environmental
+          footprint of AI models. Our methodology is built upon rigorous
+          research and real-world data extrapolation, ensuring transparency and
+          accuracy.
+        </p>
+
+        <h2><i class="fas fa-flask"></i> Research & Data Sources</h2>
+        <p>
+          We base our calculations on established research papers and empirical
+          datasets. Notably, the
+          <a href="https://huggingface.github.io/AIEnergyScore/" target="_blank"
+            >AI Energy Score Initiative</a
+          >
+          provides invaluable insights into energy consumption trends across AI
+          models.
+        </p>
+
+        <h2><i class="fas fa-bolt"></i> Energy Consumption Scaling</h2>
+        <p>
+          To estimate real-world AI model energy consumption, we apply a
+          parameter-based scaling approach. Since larger models incorporate
+          optimizations, we use an efficiency-adjusted formula:
+        </p>
+
+        <div class="formula">𝐸_new = 𝐸_base × (P_base / P_new)<sup>b</sup></div>
+        <p><strong>Where:</strong></p>
+        <ul>
+          <li><b>E_base:</b> Energy consumption of a reference model</li>
+          <li><b>P_base:</b> Parameter count of the reference model</li>
+          <li><b>P_new:</b> Parameter count of the target model</li>
+          <li><b>b:</b> Efficiency scaling exponent</li>
+        </ul>
+
+        <h2><i class="fas fa-cloud"></i> Carbon Emission Estimation</h2>
+        <p>
+          We determine a server's geographical location through browser APIs and
+          geolocation services. The regional carbon intensity factor
+          (gCO2eq/kWh) is retrieved from the
+          <a href="https://www.electricitymaps.com/" target="_blank"
+            >ElectricityMaps API</a
+          >
+          to assess emissions.
+        </p>
+
+        <h2>
+          <i class="fas fa-server"></i> Datacenter Efficiency & PUE Factor
+        </h2>
+        <p>
+          Power Usage Effectiveness (PUE) varies based on external conditions.
+          Our calculations account for these fluctuations:
+        </p>
+        <ul>
+          <li>
+            <strong>Peak summer demand:</strong> PUE = 1.6 (higher energy loss)
+          </li>
+          <li>
+            <strong>Winter off-peak hours:</strong> PUE = 1.1 (optimal
+            efficiency)
+          </li>
+        </ul>
+
+        <h2><i class="fas fa-tint"></i> Water Consumption Calculation</h2>
+        <p>
+          Water usage per kWh is estimated based on cooling system dependencies.
+          Our methodology factors in regional variations in water consumption
+          for cooling.
+        </p>
+
+        <h2><i class="fas fa-project-diagram"></i> Query Classification</h2>
+        <p>
+          To enhance precision, queries are first categorized (e.g., text
+          generation, image processing) using our machine learning model
+          deployed on Google Cloud's Vertex AI.
+        </p>
+
+        <h2><i class="fas fa-book"></i> Further Resources</h2>
+        <p>
+          For a deeper dive into our methodology, explore our repos on
+          <a
+            href="https://github.com/SustAIn-GDG/SustAIn-Backend/blob/main/data/AI%20Energy%20Consumption%20Dataset.xlsx"
+            >GitHub</a
+          >
+          and consult our
+          <a href="https://github.com/SustAIn-GDG/Documentation"
+            >Documentation Repository</a
+          >.
+        </p>
+
+        <!-- Team Section -->
+        <div class="team-section">
+          <h2><i class="fas fa-users"></i> Our Team</h2>
+          <div class="team-members">
+            <div class="team-member">
+              <div class="team-header">
+                <div class="team-avatar">TK</div>
+                <div class="team-name">Tharun Kumarr A</div>
+              </div>
+              <div class="team-links">
+                <a
+                  href="https://github.com/TharunKumarrA"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/tharun-kumarr/"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a
+                  href="https://www.tharunkumarra.tech/"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fas fa-globe"></i> Portfolio
+                </a>
+              </div>
+            </div>
+            <div class="team-member">
+              <div class="team-header">
+                <div class="team-avatar">TK</div>
+                <div class="team-name">Thanus Kumaar A</div>
+              </div>
+              <div class="team-links">
+                <a
+                  href="https://github.com/Thanus-Kumaar"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fab fa-github"></i> GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/thanus-kumaar/"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fab fa-linkedin-in"></i> LinkedIn
+                </a>
+                <a
+                  href="https://portfolio-gamma-ruddy-68.vercel.app/"
+                  target="_blank"
+                  class="team-link"
+                >
+                  <i class="fas fa-globe"></i> Portfolio
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Footer -->
+      <div class="footer">
+        <div class="footer-content">
+          <div class="made-with-love">
+            Made with <i class="fas fa-heart"></i> by Team SustAIn
+          </div>
+
+          <div class="copyright">&copy; 2025 SustAIn. All rights reserved.</div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="36px" height="36px" viewBox="0 0 36 36" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <title>Categorization_PRODUCTS_AutoML Tables (beta)</title>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Categorization_PRODUCTS_AutoML-Tables-(beta)">
+            <rect id="1" x="0" y="0" width="36" height="36"></rect>
+            <g id="automl-tables-512-color" transform="translate(3.000000, 4.000000)" fill-rule="nonzero">
+                <line x1="26.61" y1="11.345" x2="27.075" y2="10.52" id="Path" fill="#4285F4"></line>
+                <polygon id="Path" fill="#4285F4" points="7.23 25.19 8.655 27.665 22.89 27.665 30 15.335 27.15 10.4 20.04 22.715 8.655 22.715"></polygon>
+                <polygon id="Path" fill="#4285F4" points="22.77 2.81 21.345 0.335 7.11 0.335 0 12.665 2.85 17.6 9.96 5.285 21.345 5.285"></polygon>
+                <polygon id="Path" fill="#669DF6" points="17.415 15.98 19.56 17.345 19.56 10.985 14.475 7.97 14.475 10.91 17.415 12.65"></polygon>
+                <polygon id="Path" fill="#AECBFA" points="16.02 20 16.02 13.67 10.935 10.67 10.935 16.79"></polygon>
+            </g>
+        </g>
+    </g>
+</svg>

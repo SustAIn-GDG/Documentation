@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Privacy Policy | SustAIn Chrome Extension</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap");
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Inter', sans-serif;
+    }
+
+    body {
+      background: linear-gradient(135deg, #e6f3f0, #c1f2e6);
+      color: #1e293b;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .container {
+      max-width: 900px;
+      background: white;
+      border-radius: 16px;
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      position: relative;
+    }
+
+    .header {
+      background: linear-gradient(90deg, #0f766e, #14b8a6);
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .header::before {
+      content: "";
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: radial-gradient(
+        circle,
+        rgba(255, 255, 255, 0.1) 0%,
+        rgba(255, 255, 255, 0) 70%
+      );
+    }
+
+    .header h1 {
+      font-size: 2.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .meta-info {
+      background-color: #f0fdf4;
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+
+    .content {
+      padding: 2rem;
+    }
+
+    .policy-section {
+      margin-bottom: 2rem;
+      padding: 1.5rem;
+      background-color: #f8fafc;
+      border-radius: 10px;
+      border: 1px solid #e2e8f0;
+      transition: all 0.3s ease;
+    }
+
+    .policy-section:hover {
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transform: translateY(-3px);
+    }
+
+    .section-title {
+      color: #0f766e;
+      border-bottom: 3px solid #14b8a6;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1rem;
+      font-size: 1.4rem;
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    .section-title i {
+      color: #0f766e;
+    }
+
+    .paragraph {
+      color: #475569;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 1.5rem;
+    }
+
+    li {
+      position: relative;
+      padding-left: 1.5rem;
+      margin-bottom: 0.75rem;
+      color: #475569;
+    }
+
+    li::before {
+      content: '•';
+      color: #0f766e;
+      position: absolute;
+      left: 0;
+      font-weight: bold;
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+
+    a {
+      color: #0f766e;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    a:hover {
+      color: #14b8a6;
+      text-decoration: underline;
+    }
+
+    .footer {
+      background: linear-gradient(90deg, #0f766e, #14b8a6);
+      color: white;
+      text-align: center;
+      padding: 1.5rem;
+      margin-top: 2rem;
+    }
+
+    @media (max-width: 768px) {
+      .container {
+        margin: 0;
+        border-radius: 0;
+      }
+
+      .header h1 {
+        font-size: 1.8rem;
+      }
+
+      .content {
+        padding: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1><i class="fas fa-shield-alt"></i> SustAIn Chrome Extension Privacy Policy</h1>
+    </div>
+
+    <div class="meta-info">
+      <strong>Effective Date:</strong> March 25, 2025 | 
+      <strong>Last Updated:</strong> March 25, 2025
+    </div>
+
+    <div class="content">
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-info-circle"></i>1. Overview</h2>
+        <p class="paragraph">
+          The SustAIn Chrome Extension is designed to provide users with real-time sustainability insights while using generative AI services. We are committed to protecting your privacy and being transparent about what data we collect and how it is used.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-database"></i>2. What Data We Collect</h2>
+        <p class="paragraph">We collect non-personally identifiable information for the purpose of delivering sustainability metrics:</p>
+        <ul>
+          <li>Domain and URL of AI services used (e.g., chat.openai.com)</li>
+          <li>Timestamp of AI interaction</li>
+          <li>IP-based geolocation data (country/region only, not stored)</li>
+          <li>Query type classification (AI-generated metadata only)</li>
+        </ul>
+        <p class="paragraph"><strong>We do NOT collect:</strong></p>
+        <ul>
+          <li>Your name, email, or personal identifiers</li>
+          <li>Content of AI queries</li>
+          <li>Cookies, passwords, or browser history</li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-leaf"></i>3. Why We Collect This Data</h2>
+        <p class="paragraph">We collect this limited data to:</p>
+        <ul>
+          <li>Compute carbon emissions and power usage effectiveness (PUE) in real time</li>
+          <li>Improve the accuracy of sustainability insights</li>
+          <li>Provide localized environmental impact estimates based on regional energy data</li>
+        </ul>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-lock"></i>4. How Data Is Handled</h2>
+        <p class="paragraph">
+          All data is processed in real time and not stored persistently unless explicitly cached locally for performance (in your browser's chrome.storage).
+          External API calls (e.g., Electricity Maps, IP-API) are made only to retrieve environmental data, not to share your personal information.
+          We do not sell, rent, or trade your data to any third party.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-user-shield"></i>5. Permissions & Privacy Controls</h2>
+        <p class="paragraph">We use the following Chrome permissions:</p>
+        <ul>
+          <li><strong>activeTab:</strong> To analyze the current tab only upon user action</li>
+          <li><strong>storage:</strong> To save preferences locally</li>
+          <li><strong>webRequest & host permissions:</strong> To detect AI queries on specific sites</li>
+        </ul>
+        <p class="paragraph">
+          You are always in control. You may uninstall the extension at any time, and no data is collected in the background without your interaction.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-sync"></i>6. Changes to This Policy</h2>
+        <p class="paragraph">
+          We may update this Privacy Policy from time to time. Changes will be reflected on this page with an updated effective date.
+        </p>
+      </section>
+
+      <section class="policy-section">
+        <h2 class="section-title"><i class="fas fa-envelope"></i>7. Contact Us</h2>
+        <p class="paragraph">
+          If you have any questions about this policy or how your data is handled, feel free to reach out:
+        </p>
+        <ul>
+          <li><strong>Email:</strong> <a href="mailto:tharunkumarra@gmail.com">tharunkumarra@gmail.com</a>, <a href="mailto:thanuskumaara@gmail.com">thanuskumaara@gmail.com</a></li>
+        </ul>
+      </section>
+    </div>
+
+    <div class="footer">
+      © 2025 SustAIn Chrome Extension. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

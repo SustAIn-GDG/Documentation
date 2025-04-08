@@ -553,6 +553,46 @@
           models.
         </p>
 
+        <h2><i class="fas fa-clock"></i> Adaptive Time-Based Scaling</h2>
+        <p>
+          We now account for the <strong>duration of each prompt</strong> to more accurately reflect real-world resource consumption. Some queries take milliseconds, others minutes — this difference matters.
+        </p>
+        
+        <h3>🔄 Exponential Moving Average (EMA)</h3>
+        <p>
+          To smooth fluctuations, we maintain a <strong>moving baseline</strong> for duration:
+        </p>
+        <pre><code>baseline = (1 - α) × previousBaseline + α × newDuration
+        α = 0.1 (adaptive but stable)</code></pre>
+        
+        <ul>
+          <li><strong>One long task:</strong> Slight increase in baseline</li>
+          <li><strong>Multiple short tasks:</strong> Gradual decrease</li>
+          <li><strong>Burst of variation:</strong> Smooth averaging</li>
+        </ul>
+        
+        <h3>📏 Time-Based Scaling Factor</h3>
+        <pre><code>scalingFactor = averageDuration / baseline</code></pre>
+        <p>We bound this to prevent manipulation:</p>
+        <pre><code>
+        if (scalingFactor &lt; 1) scalingFactor = 0.8
+        if (scalingFactor &gt;= 1 && scalingFactor &lt; 10) scalingFactor remains
+        if (scalingFactor &gt;= 10) scalingFactor = 10
+        </code></pre>
+        
+        <h4>Example Effect</h4>
+        <table>
+          <thead>
+            <tr><th>Duration (s)</th><th>Baseline (s)</th><th>Scaling Factor</th><th>Multiplier Applied</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>3.0</td><td>4.0</td><td>0.8</td><td>80% of base values</td></tr>
+            <tr><td>6.0</td><td>3.0</td><td>2.0</td><td>200% of base values</td></tr>
+            <tr><td>120.0</td><td>6.0</td><td>10.0 (clamped)</td><td>1000% of base values</td></tr>
+          </tbody>
+        </table>
+
+
         <h2><i class="fas fa-bolt"></i> Energy Consumption Scaling</h2>
         <p>
           To estimate real-world AI model energy consumption, we apply a
